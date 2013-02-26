@@ -22,13 +22,15 @@
       var box = d3.select("#frame")
                 .append("svg")
                 .attr("width", 900)
-                .attr("height", 600);
+                .attr("height", 600)
+                .style("pointer-events", "all")
+                .on("mousemove", paint);
 
       box.append("circle")
       .attr("r", 100)
       .attr("cx", 150)
       .attr("cy", 150)
-      .on("mousemove", dance);
+      .on("mousemove", drops);
 
 
       function bounce()
@@ -49,6 +51,20 @@
         .duration(600)
         .ease("elastic")
         .each("end", bounce);
+      }
+
+
+      function paint()
+      {
+        var m = d3.mouse(this);
+
+        box.append("circle")
+        .attr("cx", m[0])
+        .attr("cy", m[1])
+        .transition()
+        .duration(600)
+        .attr("r", 10)
+        .remove();
       }
 
 

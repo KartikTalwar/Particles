@@ -25,20 +25,31 @@
                 .attr("height", 600);
 
       box.append("circle")
-      .attr("r", 40)
+      .attr("r", 100)
       .attr("cx", 150)
       .attr("cy", 150)
-      .on("mouseover", bounce);
+      .on("mouseover", dance);
 
 
-    function bounce()
-    {
-      d3.select(this)
-      .transition()
-      .attr("r", 100)
-      .duration(1000)
-      .ease("elastic");
-    }
+      function bounce()
+      {
+        d3.select(this)
+        .transition()
+        .attr("r", 50)
+        .duration(1000)
+        .ease("elastic");
+      }
+
+
+      function dance()
+      {
+        d3.select(this)
+        .transition()
+        .attr("r", 110)
+        .duration(1000)
+        .ease("elastic")
+        .each("end", bounce);
+      }
 
 
     </script>

@@ -6,8 +6,9 @@
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.25.0"></script>
 
     <style type="text/css">
-      #frame {
-         background : black;
+      #frame
+      {
+         background-color : #EEE;
       }
     </style>
 
@@ -24,10 +25,21 @@
                 .attr("height", 600);
 
       box.append("circle")
-      .style("stroke", "white")
       .attr("r", 40)
       .attr("cx", 150)
-      .attr("cy", 150);
+      .attr("cy", 150)
+      .on("mouseover", bounce);
+
+
+    function bounce()
+    {
+      d3.select(this)
+      .transition()
+      .attr("r", 100)
+      .duration(1000)
+      .ease("elastic");
+    }
+
 
     </script>
 

@@ -23,14 +23,12 @@
                 .append("svg")
                 .attr("width", 900)
                 .attr("height", 600)
-                .style("pointer-events", "all")
+                //.append("circle")
+                //.attr("r", 100)
+                //.attr("cx", 150)
+                //.attr("cy", 150)
+                //.style("pointer-events", "all")
                 .on("mousemove", paint);
-
-      box.append("circle")
-      .attr("r", 100)
-      .attr("cx", 150)
-      .attr("cy", 150)
-      .on("mousemove", drops);
 
 
       function bounce()

@@ -186,3 +186,113 @@ function dance()
 ## Preview
 
 ### See the live preview [here!](http://jsfiddle.net/kuwxT/4/embedded/result/)
+
+
+## The Fun Part
+
+Lets create a new function **marker**
+
+```js
+function marker()
+{
+  var arrow = d3.mouse(this);
+  
+  box.append("circle")             // add new circle
+  .attr("cx", arrow[0])            // new x coordinate
+  .attr("cy", arrow[1])            // new y coordinate
+  .style("stroke", "gray")         // make circle border gray
+  .transition()                    // start animating
+  .duration(1000)                  // for 1 second
+  .attr("r", 80)                   // change radius to 80
+  .style("stroke-opacity", 0.001)  // start fading previous circles
+  .remove();                       // then remove older circles
+}
+```
+
+## Modify these lines
+
+
+**Change this**
+```js
+box.append("circle")
+   .attr("r", 100)
+   .attr("cx", 150)
+   .attr("cy", 150)
+   .on("mouseover", dance);
+```
+
+**To this**
+```js
+/*
+box.append("circle")
+     .attr("r", 100)
+     .attr("cx", 150)
+     .attr("cy", 150)
+     .on("mouseover", dance);
+*/
+```
+
+## Modify these lines
+
+```js
+var box = d3.select("#frame")
+    .append("svg")
+    .attr("width", 900)
+    .attr("height", 600)    // no semicolon
+    .on("mousemove", marker); // add this new line
+```
+
+**Save and refresh!**
+
+
+## Preview
+
+![](http://i.imgur.com/IS87E4i.jpg)
+
+
+## Bonus Points
+
+Change the background-color of the frame to black and hit refresh!
+
+**particles.html**
+
+```html
+<style type="text/css">
+#frame {
+  background-color : black;
+}
+</style>
+```
+
+## Preview
+
+![](http://i.imgur.com/ptD6En0.jpg)
+
+## Extra Credit - Add Colors
+
+```js
+
+var i = 0;                          // new variable
+var color = d3.scale.category20c(); // new variable
+
+function marker() {
+  var m = d3.mouse(this);
+
+  box.append("circle")
+     .attr("cx", m[0])
+     .attr("cy", m[1])
+     .attr("r", 1e-6)             // new line
+     .style("stroke", color(++i)) // changed
+     .transition()
+     .duration(1000)
+     .attr("r", 80)
+     .style("stroke-opacity", 0.001)
+     .remove();
+}
+```
+
+## Preview
+
+![](http://i.imgur.com/2Zd83N9.jpg)
+
+View it [Live] (http://jsfiddle.net/kuwxT/10/embedded/result/)

@@ -44,9 +44,9 @@ Add this in **JavaScript** box
 
 ```js
 var box = d3.select("#frame")
-          .append("svg")
-          .attr("width", 900)
-          .attr("height", 600);
+            .append("svg")
+            .attr("width", 900)
+            .attr("height", 600);
 ```
 
 
@@ -59,17 +59,17 @@ Add this new code in the javascript box
 
 ```text
 var box = d3.select("#frame")
-          .append("svg")
-          .attr("width", 900)
-          .attr("height", 600);
+            .append("svg")
+            .attr("width", 900)
+            .attr("height", 600);
 ```
 
 ```js
-box.append("circle")
-      .style("stroke", "white")
-      .attr("r", 40)    // radius 40. You can make it bigger
-      .attr("cx", 150)  // position at x
-      .attr("cy", 150); // position at y
+box.append("circle")         // make a circle
+   .style("stroke", "white") // make the circle border white
+   .attr("r", 40)            // radius 40. You can make it bigger
+   .attr("cx", 150)          // position at x
+   .attr("cy", 150);         // position at y
 ```
 
 
@@ -87,11 +87,11 @@ Modify the lines you just wrote:
 
 ```js
 box.append("circle")
-    .style("stroke", "white")
-    .attr("r", 40)
-    .attr("cx", 150)
-    .attr("cy", 150)   // no semicolon here
-    .on("mouseover", bounce); // new line
+   .style("stroke", "white")
+   .attr("r", 40)
+   .attr("cx", 150)
+   .attr("cy", 150)   // no semicolon here
+   .on("mouseover", bounce); // new line
 ```
 
 
@@ -102,20 +102,20 @@ We are telling it to **bounce** when we move our mouse over it.
 
 ```text
 box.append("circle")
-    .style("stroke", "white")
-    .attr("r", 40)
-    .attr("cx", 150)
-    .attr("cy", 150)   // no semicolon here
-    .on("mouseover", bounce); // new line
+   .style("stroke", "white")
+   .attr("r", 40)
+   .attr("cx", 150)
+   .attr("cy", 150)   // no semicolon here
+   .on("mouseover", bounce); // new line
 ```
 ```js
 function bounce()
 {
-  d3.select(this)   // we select our circle
-  .transition()     // start changing the circle
-  .attr("r", 100)   // change radius to 100
-  .duration(1000)   // for 1 second
-  .ease("elastic"); // like an elastic band
+  d3.select(this)     // we select our circle
+    .transition()     // start changing the circle
+    .attr("r", 100)   // change radius to 100
+    .duration(1000)   // for 1 second
+    .ease("elastic"); // like an elastic band
 }
 ```
 
@@ -135,12 +135,12 @@ We add a new function **dance** right after the function **bounce**
 ```js
 function dance()
 {
-  d3.select(this)        // select the circle
-  .transition()          // start animating
-  .attr("r", 50)         // change radius to 50
-  .duration(1000)        // for 1 second
-  .ease("elastic")       // like an elastic band
-  .each("end", bounce);  // and then call bounce function
+  d3.select(this)          // select the circle
+    .transition()          // start animating
+    .attr("r", 50)         // change radius to 50
+    .duration(1000)        // for 1 second
+    .ease("elastic")       // like an elastic band
+    .each("end", bounce);  // and then call bounce function
 }
 ```
 And change this line to call **dance** function
@@ -167,15 +167,15 @@ function marker()
 {
   var arrow = d3.mouse(this);
   
-  box.append("circle")             // add new circle
-  .attr("cx", arrow[0])            // new x coordinate
-  .attr("cy", arrow[1])            // new y coordinate
-  .style("stroke", "gray")         // make circle border gray
-  .transition()                    // start animating
-  .duration(1000)                  // for 1 second
-  .attr("r", 80)                   // change radius to 80
-  .style("stroke-opacity", 0.001)  // start fading previous circles
-  .remove();                       // then remove older circles
+  box.append("circle")                // add new circle
+     .attr("cx", arrow[0])            // new x coordinate
+     .attr("cy", arrow[1])            // new y coordinate
+     .style("stroke", "gray")         // make circle border gray
+     .transition()                    // start animating
+     .duration(1000)                  // for 1 second
+     .attr("r", 80)                   // change radius to 80
+     .style("stroke-opacity", 0.001)  // start fading previous circles
+     .remove();                       // then remove older circles
 }
 ```
 
@@ -196,11 +196,11 @@ box.append("circle")
 ```js
 /*
 box.append("circle")
-     .style("stroke", "white")
-     .attr("r", 100)
-     .attr("cx", 150)
-     .attr("cy", 150)
-     .on("mouseover", dance);
+   .style("stroke", "white")
+   .attr("r", 100)
+   .attr("cx", 150)
+   .attr("cy", 150)
+   .on("mouseover", dance);
 */
 ```
 
@@ -208,10 +208,10 @@ box.append("circle")
 
 ```js
 var box = d3.select("#frame")
-    .append("svg")
-    .attr("width", 900)
-    .attr("height", 600)    // no semicolon
-    .on("mousemove", marker); // add this new line
+            .append("svg")
+            .attr("width", 900)
+            .attr("height", 600)      // no semicolon
+            .on("mousemove", marker); // add this new line
 ```
 
 **Click Run!**
@@ -222,7 +222,7 @@ var box = d3.select("#frame")
 ![](http://i.imgur.com/J7c0G78.png)
 
 
-### **Live Preview [here](http://jsfiddle.net/asr9Q/4/)**
+**Live Preview [here](http://jsfiddle.net/asr9Q/4/)**
 
 ## Bonus Points
 
@@ -240,7 +240,7 @@ Change the background-color of the frame to black and hit run!
 ![](http://i.imgur.com/ptD6En0.jpg)
 
 
-### **Live Preview [here](http://jsfiddle.net/asr9Q/5/)**
+**Live Preview [here](http://jsfiddle.net/asr9Q/5/)**
 
 ## Double Bonus - Add Colors
 

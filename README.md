@@ -1,5 +1,6 @@
 # Animations in JavaScript
 
+
 ##  D3.js
 
 Library that uses HTML, CSS and SVG to bring data to life.
@@ -8,29 +9,38 @@ Library that uses HTML, CSS and SVG to bring data to life.
 
 ## Setting Up
 
-#### Windows
 
-- Download and install Notepad++ [http://tinyurl.com/notepadwin](http://tinyurl.com/notepadwin)
+Open [http://jsfiddle.net/](http://jsfiddle.net/)
 
-#### Mac
+Click on  **External Resources** on the left and add this url:
 
-- Download and install Text Wrangler [http://tinyurl.com/textwranglermac](http://tinyurl.com/textwranglermac)
+```text
+http://d3js.org/d3.v2.js
+```
 
-Download and install Google Chrome  [http://google.com/chrome](http://google.com/chrome)
+![](http://i.imgur.com/CPA7h4n.png)
 
-
-## Downloading the Template
-
-Copy the contents into a new html file **particles.html** in your text editor!
-
-http://tinyurl.com/particlesSetup
 
 ## Getting Started
 
 
+Add this in the **HTML** box
+
 ```html
-<script type="text/javascript">
+<div id="frame"></div>
 ```
+
+Add this in the **CSS** box
+
+```css
+#frame {
+  background-color : #eee;
+}
+```
+
+## Setting Up
+
+Add this in **JavaScript** box
 
 ```js
 var box = d3.select("#frame")
@@ -39,17 +49,14 @@ var box = d3.select("#frame")
           .attr("height", 600);
 ```
 
-```html
-</script>
-```
 
-We create a variable **box** where we get **d3** to select the **#frame** and change its **width** and **height**
+We created a variable **box** where we get **d3** to select the **#frame** and change its **width** and **height**
 
 ## Creating a Circle
 
-```text
-<script type="text/javascript">
-```
+Add this new code in the javascript box
+
+
 ```text
 var box = d3.select("#frame")
           .append("svg")
@@ -64,25 +71,19 @@ box.append("circle")
       .attr("cx", 150)  // position at x
       .attr("cy", 150); // position at y
 ```
-```text
-</script>
-```
 
-**Save Changes!**
+
+**Click Run!**
 
 ## Preview
 
-![](http://i.imgur.com/tSAA9Lv.png)
+![](http://i.imgur.com/ks91VST.png)
 
 
 ## Our First Animation!
 
 Modify the lines you just wrote: 
 
-```text
-<script type="text/javascript">
-  ...
-```
 ```js
 box.append("circle")
     .style("stroke", "white")
@@ -91,14 +92,13 @@ box.append("circle")
     .attr("cy", 150)   // no semicolon here
     .on("mouseover", bounce); // new line
 ```
-```text
-</script>
-```
+
 
 We are telling it to **bounce** when we move our mouse over it.
 
 
 ## But What is Bounce?
+
 ```text
 box.append("circle")
     .style("stroke", "white")
@@ -117,15 +117,13 @@ function bounce()
   .ease("elastic"); // like an elastic band
 }
 ```
-```text
-</script>
-```
 
-**Save Changes!**
+
+**Click Run!**
 
 ## Preview
 
-![](http://i.imgur.com/aCFAChO.jpg)
+![](http://i.imgur.com/TUveO1C.png)
 
 
 ## Lets Make it Dance!
@@ -143,47 +141,17 @@ function dance()
   .each("end", bounce);  // and then call bounce function
 }
 ```
+And change this line to call **dance** function
 
-## Everything looks like this:
-
-```html
-<script type="text/javascript">
-
-var box = d3.select("#frame")
-          .append("svg")
-          .attr("width", 900)
-          .attr("height", 600);
-
-box.append("circle")
-    .attr("r", 100)
-    .attr("cx", 150)
-    .attr("cy", 150)
-    .on("mouseover", dance);
-
-function bounce()
-{
-  d3.select(this)
-  .transition()
-  .attr("r", 40)
-  .duration(1000)
-  .ease("elastic");
-}
-
-function dance()
-{
-  d3.select(this)
-  .transition()
-  .attr("r", 40)
-  .duration(1000)
-  .ease("elastic")
-  .each("end", bounce);
-}
-
-</script>
-
+```js
+.on("mouseover", dance); // dance instaed of bounce
 ```
 
+
 ## Preview
+
+
+![](http://i.imgur.com/jICTqey.png)
 
 ### See the live preview [here!](http://jsfiddle.net/kuwxT/4/embedded/result/)
 

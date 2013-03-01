@@ -77,8 +77,9 @@ box.append("circle")
 
 ## Preview
 
-![](http://i.imgur.com/ks91VST.png)
+![](http://i.imgur.com/GWW4jmf.png)
 
+**Live Preview [here](http://jsfiddle.net/asr9Q/1/)**
 
 ## Our First Animation!
 
@@ -125,6 +126,7 @@ function bounce()
 
 ![](http://i.imgur.com/TUveO1C.png)
 
+**Live Preview [here](http://jsfiddle.net/asr9Q/2/)**
 
 ## Lets Make it Dance!
 
@@ -153,7 +155,7 @@ And change this line to call **dance** function
 
 ![](http://i.imgur.com/jICTqey.png)
 
-### See the live preview [here!](http://jsfiddle.net/kuwxT/4/embedded/result/)
+**Live Preview [here](http://jsfiddle.net/asr9Q/3/)**
 
 
 ## The Fun Part
@@ -183,6 +185,7 @@ function marker()
 **Change this**
 ```js
 box.append("circle")
+   .style("stroke", "white")
    .attr("r", 100)
    .attr("cx", 150)
    .attr("cy", 150)
@@ -193,6 +196,7 @@ box.append("circle")
 ```js
 /*
 box.append("circle")
+     .style("stroke", "white")
      .attr("r", 100)
      .attr("cx", 150)
      .attr("cy", 150)
@@ -210,33 +214,35 @@ var box = d3.select("#frame")
     .on("mousemove", marker); // add this new line
 ```
 
-**Save and refresh!**
+**Click Run!**
 
 
 ## Preview
 
-![](http://i.imgur.com/IS87E4i.jpg)
+![](http://i.imgur.com/J7c0G78.png)
 
+
+### **Live Preview [here](http://jsfiddle.net/asr9Q/4/)**
 
 ## Bonus Points
 
-Change the background-color of the frame to black and hit refresh!
+Change the background-color of the frame to black and hit run!
 
-**particles.html**
 
-```html
-<style type="text/css">
+```css
 #frame {
   background-color : black;
 }
-</style>
 ```
 
 ## Preview
 
 ![](http://i.imgur.com/ptD6En0.jpg)
 
-## Extra Credit - Add Colors
+
+### **Live Preview [here](http://jsfiddle.net/asr9Q/5/)**
+
+## Double Bonus - Add Colors
 
 ```js
 
@@ -244,11 +250,11 @@ var i = 0;                          // new variable
 var color = d3.scale.category20c(); // new variable
 
 function marker() {
-  var m = d3.mouse(this);
+  var arrow = d3.mouse(this);
 
   box.append("circle")
-     .attr("cx", m[0])
-     .attr("cy", m[1])
+     .attr("cx", arrow[0])
+     .attr("cy", arrow[1])
      .attr("r", 1e-6)             // new line
      .style("stroke", color(++i)) // changed
      .transition()
@@ -263,4 +269,8 @@ function marker() {
 
 ![](http://i.imgur.com/2Zd83N9.jpg)
 
-View it [Live] (http://jsfiddle.net/kuwxT/10/embedded/result/)
+**Live Preview [here](http://jsfiddle.net/asr9Q/6/)**
+
+## Extra Credit
+
+Convert the JSFiddle page to HTML, CSS and Javascript document
